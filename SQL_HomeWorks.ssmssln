@@ -5,12 +5,16 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "SQLJoins", "SQLJoins\SQLJoins.ssmssqlproj", "{BBBDF95B-C951-43FA-8559-31934214ECE8}"
 EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "Group by", "Group by\Group by.ssmssqlproj", "{22B6AE7C-B315-4819-B894-831AD970A212}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Default|Default = Default|Default
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{BBBDF95B-C951-43FA-8559-31934214ECE8}.Default|Default.ActiveCfg = Default
+		{8D4DC540-31EF-4D7E-92A0-0CB21376BADD}.Default|Default.ActiveCfg = Default
+		{22B6AE7C-B315-4819-B894-831AD970A212}.Default|Default.ActiveCfg = Default
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
