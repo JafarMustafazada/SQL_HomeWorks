@@ -9,6 +9,7 @@ DROP TABLE Workers
 DROP TABLE Positions
 
 
+
 CREATE TABLE Positions(
 	ID INT IDENTITY PRIMARY KEY,
 	[Name] VARCHAR(63) NOT NULL
@@ -16,8 +17,8 @@ CREATE TABLE Positions(
 
 CREATE TABLE Workers(
 	ID INT IDENTITY PRIMARY KEY,
-	[Name] VARCHAR(31) NOT NULL,
-	Surname VARCHAR(31) NOT NULL,
+	[Name] NVARCHAR(31) NOT NULL,
+	Surname NVARCHAR(31) NOT NULL,
 	Salary MONEY CHECK(Salary > 0),
 	Position_ID INT FOREIGN KEY REFERENCES Positions(ID) NOT NULL
 )
@@ -43,11 +44,12 @@ CREATE TABLE Sells(
 )
 
 
+
 INSERT INTO Positions VALUES
 ('Zorluq'),('Back-End dev helper'),('Back-End Seniour')
 
 INSERT INTO Workers VALUES
-('Jafar','Zorzade',999999999,1),('Ülvi','NotZorzade',111111111,2),('Qemer','YeneZorzade',333333333,3)
+('Jafar','Zorzade',999999999,1),('Ülvi','NotZorzade',111111111,2),(N'Q?m?r',N'Latezade',333333333,3)
 
 INSERT INTO Fillials VALUES
 ('Enderg Fun Games'),('Bizim Market'),('Code Academy')
@@ -57,6 +59,7 @@ INSERT INTO Products VALUES
 
 INSERT INTO Sells VALUES
 (1,1,1,DEFAULT),(1,2,1,DEFAULT),(2,2,3,DEFAULT),(2,3,2,DEFAULT),(3,2,3,DEFAULT)
+
 
 
 SELECT (w.[Name] + ' ' + w.Surname) as Fullname, p.[Name] as 'Product Name', f.[Name] as 'Fillial Name',
@@ -73,3 +76,22 @@ SELECT p.[Name] as Product, SUM(p.Export_Profit - p.Import_Cost) as 'Profit in t
 JOIN Products as p ON p.ID = s.Product_ID
 WHERE DATEDIFF(MONTH,s.Sell_Time,CURRENT_TIMESTAMP) < 1
 GROUP BY p.[Name]
+
+
+
+SELECT (w.[Name] + ' ' + w.Surname) as Fullname, COUNT(s.ID) as 'Amount of sells' FROM Sells as s
+JOIN Workers as w ON w.ID = s.Worker_ID 
+GROUP BY w.[Name], w.Surname
+
+SELECT TOP 1 f.[Name] as Fillial, COUNT(s.ID) as 'Today sold amount' FROM Sells as s
+JOIN Fillials as f ON f.ID = s.Fillial_ID
+WHERE DATEDIFF(DAY,s.Sell_Time,CURRENT_TIMESTAMP) < 1
+GROUP BY f.[Name]
+ORDER BY 'Today sold amount' DESC
+
+SELECT TOP 1 p.Name as Product, COUNT(s.ID) as Amount FROM Sells as s
+JOIN Products as p ON p.ID = s.Product_ID
+WHERE DATEDIFF(DAY,s.Sell_Time,CURRENT_TIMESTAMP) < 1
+GROUP BY p.Name
+ORDER BY Amount DESC
+--NEVER GONNA NEED TO USE SUBQUERRY!
