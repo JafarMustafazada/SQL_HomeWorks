@@ -7,14 +7,17 @@ Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "SQLJoins", "SQLJoins\SQLJoi
 EndProject
 Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "Group by", "Group by\Group by.ssmssqlproj", "{22B6AE7C-B315-4819-B894-831AD970A212}"
 EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "AliNinoDb", "AliNinoDb\AliNinoDb.ssmssqlproj", "{53201803-5607-43BA-97C0-839B97D568B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Default|Default = Default|Default
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{BBBDF95B-C951-43FA-8559-31934214ECE8}.Default|Default.ActiveCfg = Default
-		{8D4DC540-31EF-4D7E-92A0-0CB21376BADD}.Default|Default.ActiveCfg = Default
 		{22B6AE7C-B315-4819-B894-831AD970A212}.Default|Default.ActiveCfg = Default
+		{8FC270DB-DB71-4973-8B2D-10B728250AF6}.Default|Default.ActiveCfg = Default
+		{53201803-5607-43BA-97C0-839B97D568B4}.Default|Default.ActiveCfg = Default
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
